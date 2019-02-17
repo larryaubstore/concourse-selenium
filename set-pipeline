@@ -1,0 +1,1 @@
+fly -t localhost set-pipeline -p simple-gate -c concourse-selenium.yml

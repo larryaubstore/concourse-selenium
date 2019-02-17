@@ -1,0 +1,66 @@
+groups: []
+resources:
+- name: my-resource
+  type: git
+  source:
+    branch: master
+    uri: https://github.com/larryaubstore/concourse-selenium.git
+resource_types: []
+jobs:
+- name: Run-automatically
+  plan:
+  - get: my-resource
+    trigger: true
+  - task: do-your-task-here
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source:
+            repository: larryaubstore/selenium-standalone
+            tag: 1.0.1
+      inputs:
+        - name: my-resource
+          path: /src
+
+      run:
+        path: /bin/bash
+        args: 
+            - src/run-e2e.sh
+- name: Manually-trigger-me
+  plan:
+  - get: my-resource
+    passed:
+    - Run-automatically
+  - task: do-your-manual-task-here
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source:
+          repository: ubuntu
+      run:
+        path: sh
+        args:
+        - -exc
+        - |
+          echo "Output of your manually triggered task."
+- name: Do-more-stuff-after-manual-trigger
+  plan:
+  - get: my-resource
+    passed:
+    - Manually-trigger-me
+    trigger: true
+  - task: do-other-tasks-here
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source:
+          repository: ubuntu
+      run:
+        path: sh
+        args:
+        - -exc
+        - |
+          echo "Output of your other tasks."

@@ -1,0 +1,20 @@
+{
+  "name": "concourse-selenium",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "protractor e2e/conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/larryaubstore/concourse-selenium.git"
+  },
+  "author": "Laurence Morin-Daoust",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/larryaubstore/concourse-selenium/issues"
+  },
+  "homepage": "https://github.com/larryaubstore/concourse-selenium#readme"
+}
