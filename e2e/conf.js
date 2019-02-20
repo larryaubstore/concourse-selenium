@@ -7,7 +7,9 @@ exports.config = {
   capabilities: {
     browserName: 'chrome',
     chromeOptions: {
-      args: [ "--headless" ]
+      args: [ "--headless",
+              "--disable-dev-shm-usage"
+            ]
     }
   },
 
