@@ -4,7 +4,7 @@ version: '3'
 services:
     selenium-standalone:
         build: .
-        image: larryaubstore/selenium-standalone:1.0.1
+        image: larryaubstore/selenium-standalone:1.0.2
         ports:
             - "4444:4444"
 
