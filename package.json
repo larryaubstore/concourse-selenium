@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/larryaubstore/concourse-selenium/issues"
   },
-  "homepage": "https://github.com/larryaubstore/concourse-selenium#readme"
+  "homepage": "https://github.com/larryaubstore/concourse-selenium#readme",
+  "dependencies": {
+    "puppeteer": "^1.15.0"
+  }
 }

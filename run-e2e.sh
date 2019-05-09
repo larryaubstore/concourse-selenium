@@ -5,4 +5,4 @@ sleep 15
 ps -eaf 
 cd src
 protractor e2e/conf.js
-
+node screenshot-fullpage.js
